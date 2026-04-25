@@ -18,22 +18,36 @@ export default function Publications() {
       <p className="section-subtitle">{t('pub_subtitle')}</p>
 
       {/* Year filter tabs (horizontal) */}
-      <div className="pub-filters">
-        <button
-          className={`pub-filter-btn ${selectedYear === null ? 'active' : ''}`}
-          onClick={() => setSelectedYear(null)}
+      <div className="pub-filters-row">
+        <div className="pub-filters">
+          <button
+            className={`pub-filter-btn ${selectedYear === null ? 'active' : ''}`}
+            onClick={() => setSelectedYear(null)}
+          >
+            All
+          </button>
+          {years.map(year => (
+              <button
+                key={year}
+                className={`pub-filter-btn ${selectedYear === year ? 'active' : ''}`}
+                onClick={() => setSelectedYear(year)}
+              >
+                {year}
+              </button>
+          ))}
+        </div>
+        <a
+          href="https://scholar.google.com/citations?user=ZWmLWIAAAAAJ&hl=pt-BR&authuser=1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pub-scholar-btn"
         >
-          All
-        </button>
-        {years.map(year => (
-            <button
-              key={year}
-              className={`pub-filter-btn ${selectedYear === year ? 'active' : ''}`}
-              onClick={() => setSelectedYear(year)}
-            >
-              {year}
-            </button>
-        ))}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+          {t('pub_scholar_btn')}
+        </a>
       </div>
 
       {/* Publications list */}

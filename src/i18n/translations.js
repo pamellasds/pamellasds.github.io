@@ -28,6 +28,7 @@ export const translations = {
     pub_subtitle: 'Artigos publicados em conferencias e journals',
     pub_preprint: 'Pre-print',
     pub_publisher: 'Publicacao',
+    pub_scholar_btn: 'Lista completa no Google Acadêmico',
 
     // Experience page
     exp_title: 'Experiencias Profissionais',
@@ -87,6 +88,7 @@ export const translations = {
     pub_subtitle: 'Papers published in conferences and journals',
     pub_preprint: 'Pre-print',
     pub_publisher: 'Publisher',
+    pub_scholar_btn: 'Full list on Google Scholar',
 
     // Experience page
     exp_title: 'Professional Experience',

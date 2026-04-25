@@ -1,9 +1,41 @@
 /* === Filter Tabs (horizontal) === */
+.pub-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
 .pub-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 32px;
+}
+
+.pub-scholar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--yellow-deepest);
+  background: var(--yellow-lightest);
+  border: 1.5px solid var(--yellow-light);
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.pub-scholar-btn:hover {
+  background: var(--yellow-light);
+  border-color: var(--yellow-medium);
+  color: var(--accent-dark);
 }
 
 .pub-filter-btn {
@@ -204,6 +236,11 @@
     display: none;
   }
 
+  .pub-filters-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .pub-filters {
     gap: 6px;
   }
@@ -211,5 +248,10 @@
   .pub-filter-btn {
     padding: 6px 12px;
     font-size: 0.8rem;
+  }
+
+  .pub-scholar-btn {
+    font-size: 0.8rem;
+    padding: 6px 14px;
   }
 }
