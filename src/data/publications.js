@@ -1,7 +1,44 @@
 export const publications = [
   {
+    year: 2026,
+    papers: [
+      {
+        title: 'From Specification to Practice: An Empirical Study of Ethereum ERC Standard Adoption in Open Source Projects',
+        authors: 'Soares, P.; Silva Filho, A.; Rodrigues, R.; Araujo, A. A.; Souza, J.',
+        venue: 'Simposio Brasileiro de Engenharia de Software (SBES).',
+        preprint: '/papers/sbes-ercs-analysis-preprint.pdf',
+        publisherUrl: null,
+        award: null,
+      },
+      {
+        title: 'Adoption of Blockchain for Decentralized Execution Agreements: Empirical Evidence of Usability and Acceptance',
+        authors: 'Fernandes, I.; Soares, P.; Saraiva, R.; Vasconcelos, A. K. M.; Paixao, M.; Araujo, A. A.; Souza, J.',
+        venue: '11th Workshop sobre Aspectos Sociais, Humanos e Economicos de Software (WASHES), p. 200-205.',
+        preprint: null,
+        publisherUrl: 'https://sol.sbc.org.br/index.php/washes/article/view/43021',
+        award: null,
+      },
+      {
+        title: 'Towards an Intelligent Platform for Supporting Quality Assessment in Blockchain Systems',
+        authors: 'Saraiva, R.; Araujo, A. A.; Santos, R. S.; Soares, P.; Souza, J.',
+        venue: 'Workshop on Emerging Trends in Software Engineering for Blockchain (WETSEB), Rio de Janeiro, Brazil.',
+        preprint: null,
+        publisherUrl: 'https://dl.acm.org/doi/10.1145/3786157.3788566',
+        award: null,
+      },
+    ],
+  },
+  {
     year: 2025,
     papers: [
+      {
+        title: 'Web3BlockSet: A Dataset for Empirical Research in Blockchain-Oriented Software Engineering',
+        authors: 'Soares, P.; Destefanis, G.; Santos, A. C. N.; Araujo, A. A.; Saraiva, R.; Souza, J.',
+        venue: 'Mining Software Repositories (MSR).',
+        preprint: null,
+        publisherUrl: null,
+        award: null,
+      },
       {
         title: 'A Transformer-Based Methodology for Person-Independent Human Activity Recognition Using Wi-Fi CSI',
         authors: 'Santos, A. C. N.; Soares, P.; Galdino, I.; Soto, J. C. H.; de Sousa, C.; Ramos, T. C. et al.',
@@ -240,14 +277,6 @@ export const publications = [
   {
     year: 'Preprint',
     papers: [
-      {
-        title: 'Web3BlockSet: A Dataset for Empirical Research in Blockchain-Oriented Software Engineering',
-        authors: 'Soares, P.; Destefanis, G.; Santos, A. C. N.; Araujo, A. A.; Saraiva, R.; Souza, J.',
-        venue: 'Preprint.',
-        preprint: null,
-        publisherUrl: null,
-        award: null,
-      },
       {
         title: 'N2PC: Um Algoritmo Evolucionário Multiobjetivo baseado em Cones Poliédricos construídos através de Preferências',
         authors: 'Soares, P.; Saraiva, R.; Araujo, A. A.; Campos, G.; Souza, J.; Fortaleza, C. B. et al.',
