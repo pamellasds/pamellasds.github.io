@@ -72,6 +72,9 @@ function ModeHome({ mode }) {
 
   useEffect(() => {
     document.documentElement.dataset.mode = mode
+    document.title = mode === 'industry'
+      ? 'Industry · Pamella Soares, PhD'
+      : 'Research · Pamella Soares, PhD'
   }, [mode])
 
   return (
@@ -139,6 +142,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/industria" replace />} />
       <Route path="/industria/*" element={<ModeHome mode="industry" />} />
+      {/* Legacy About URL → land on Industry */}
+      <Route path="/pesquisa/sobre" element={<Navigate to="/industria" replace />} />
       <Route path="/pesquisa/*" element={<ModeHome mode="research" />} />
       <Route
         path="*"
