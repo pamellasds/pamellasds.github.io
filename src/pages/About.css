@@ -18,7 +18,7 @@
   color: var(--text-primary);
   margin-bottom: 20px;
   padding-bottom: 8px;
-  border-bottom: 2px solid var(--yellow-light);
+  border-bottom: 2px solid var(--brand-light);
 }
 
 /* === Education === */
@@ -37,7 +37,7 @@
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: var(--gray-medium);
+  background: var(--brand-light);
 }
 
 .education-item {
@@ -56,9 +56,9 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--yellow-medium);
+  background: var(--brand-medium);
   border: 2px solid var(--white);
-  box-shadow: 0 0 0 2px var(--yellow-medium);
+  box-shadow: 0 0 0 2px var(--brand-medium);
   z-index: 1;
 }
 
@@ -82,11 +82,11 @@
 
 .education-note {
   font-size: 0.8rem;
-  color: var(--yellow-deepest);
+  color: var(--brand-deepest);
   font-style: italic;
   margin-top: 4px;
   padding: 4px 10px;
-  background: var(--yellow-lightest);
+  background: var(--brand-lightest);
   border-radius: var(--radius-sm);
   display: inline-block;
 }
@@ -110,7 +110,7 @@
 }
 
 .interest-card:hover {
-  border-color: var(--yellow-medium);
+  border-color: var(--brand-medium);
   box-shadow: 0 4px 20px rgba(245, 197, 24, 0.1);
   transform: translateY(-2px);
 }
@@ -123,8 +123,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: var(--yellow-lightest);
-  color: var(--yellow-deepest);
+  background: var(--brand-lightest);
+  color: var(--brand-deepest);
   font-size: 0.75rem;
   font-weight: 700;
 }

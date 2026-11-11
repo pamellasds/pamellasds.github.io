@@ -4,10 +4,10 @@ import { translations } from './translations'
 const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('pt')
+  const [lang, setLang] = useState('en')
 
   const t = (key) => {
-    return translations[lang]?.[key] || translations['pt'][key] || key
+    return translations[lang]?.[key] || translations['en'][key] || translations['pt'][key] || key
   }
 
   const toggleLang = () => setLang(prev => prev === 'pt' ? 'en' : 'pt')

@@ -17,11 +17,26 @@
 .project-card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
-  border-color: var(--yellow-light);
+  border-color: var(--brand-light);
 }
 
 .project-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 12px;
+}
+
+.project-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-lightest);
+  color: var(--brand-deepest);
 }
 
 .project-name {
@@ -34,7 +49,7 @@
 .project-company {
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--yellow-deepest);
+  color: var(--brand-deepest);
 }
 
 .project-description {

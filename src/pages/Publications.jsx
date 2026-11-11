@@ -1,39 +1,92 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { GraduationCap, FileText, ArrowSquareOut, CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { publications } from '../data/publications'
 import './Publications.css'
 
+const PAGE_SIZE = 5
+
+function isFirstAuthor(authors) {
+  const first = (authors || '').split(';')[0].trim().toLowerCase()
+  return first.startsWith('soares')
+}
+
+function flattenGroups(groups) {
+  return groups.flatMap(({ year, papers }) =>
+    papers.map(paper => ({ year, paper }))
+  )
+}
+
+function groupPageItems(items) {
+  const groups = []
+  for (const item of items) {
+    const last = groups[groups.length - 1]
+    if (last && last.year === item.year) {
+      last.papers.push(item.paper)
+    } else {
+      groups.push({ year: item.year, papers: [item.paper] })
+    }
+  }
+  return groups
+}
+
 export default function Publications() {
   const { t } = useLanguage()
-  const years = publications.map(p => p.year)
-  const [selectedYear, setSelectedYear] = useState(null) // null = all
+  const years = publications.map(p => p.year).filter(year => year !== 'Preprint')
+  const [filter, setFilter] = useState('selected')
+  const [page, setPage] = useState(1)
 
-  const filteredPublications = selectedYear
-    ? publications.filter(p => p.year === selectedYear)
-    : publications
+  const flatPapers = useMemo(() => {
+    if (filter === 'selected') {
+      return flattenGroups(
+        publications
+          .map(({ year, papers }) => ({
+            year,
+            papers: papers.filter(p => isFirstAuthor(p.authors)),
+          }))
+          .filter(group => group.papers.length > 0 && group.year !== 'Preprint')
+      )
+    }
+
+    return flattenGroups(publications.filter(p => p.year === filter))
+  }, [filter])
+
+  const totalPages = Math.max(1, Math.ceil(flatPapers.length / PAGE_SIZE))
+
+  useEffect(() => {
+    setPage(1)
+  }, [filter])
+
+  useEffect(() => {
+    if (page > totalPages) setPage(totalPages)
+  }, [page, totalPages])
+
+  const pageGroups = useMemo(() => {
+    const start = (page - 1) * PAGE_SIZE
+    return groupPageItems(flatPapers.slice(start, start + PAGE_SIZE))
+  }, [flatPapers, page])
 
   return (
     <div className="publications">
       <h1 className="section-title">{t('pub_title')}</h1>
       <p className="section-subtitle">{t('pub_subtitle')}</p>
 
-      {/* Year filter tabs (horizontal) */}
       <div className="pub-filters-row">
         <div className="pub-filters">
           <button
-            className={`pub-filter-btn ${selectedYear === null ? 'active' : ''}`}
-            onClick={() => setSelectedYear(null)}
+            className={`pub-filter-btn pub-filter-btn--primary ${filter === 'selected' ? 'active' : ''}`}
+            onClick={() => setFilter('selected')}
           >
-            All
+            {t('pub_selected')}
           </button>
           {years.map(year => (
-              <button
-                key={year}
-                className={`pub-filter-btn ${selectedYear === year ? 'active' : ''}`}
-                onClick={() => setSelectedYear(year)}
-              >
-                {year}
-              </button>
+            <button
+              key={year}
+              className={`pub-filter-btn ${filter === year ? 'active' : ''}`}
+              onClick={() => setFilter(year)}
+            >
+              {year}
+            </button>
           ))}
         </div>
         <a
@@ -42,25 +95,25 @@ export default function Publications() {
           rel="noopener noreferrer"
           className="pub-scholar-btn"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-          </svg>
+          <GraduationCap size={16} weight="duotone" />
           {t('pub_scholar_btn')}
         </a>
       </div>
 
-      {/* Publications list */}
       <div className="pub-list">
-        {filteredPublications.map(({ year, papers }) => (
-          <div key={year} className="pub-year-section">
+        {(() => {
+          let index = (page - 1) * PAGE_SIZE
+          return pageGroups.map(({ year, papers }) => (
+          <div key={`${year}-${papers[0]?.title}`} className="pub-year-section">
             <div className="pub-year-badge">{year}</div>
             <div className="pub-papers">
-              {papers.map((paper, i) => (
-                <article key={i} className="pub-card">
+              {papers.map(paper => {
+                index += 1
+                return (
+                <article key={paper.title} className="pub-card">
                   <div className="pub-card-left">
                     <span className="pub-card-number">
-                      {String(i + 1).padStart(2, '0')}
+                      {String(index).padStart(2, '0')}
                     </span>
                   </div>
                   <div className="pub-card-content">
@@ -75,33 +128,52 @@ export default function Publications() {
                     <div className="pub-card-actions">
                       {paper.preprint && paper.preprint !== '#' && (
                         <a href={paper.preprint} target="_blank" rel="noopener noreferrer" className="pub-action-btn">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                          </svg>
+                          <FileText size={14} weight="duotone" />
                           {t('pub_preprint')}
                         </a>
                       )}
                       {paper.publisherUrl && paper.publisherUrl !== '#' && (
                         <a href={paper.publisherUrl} target="_blank" rel="noopener noreferrer" className="pub-action-btn">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
+                          <ArrowSquareOut size={14} weight="duotone" />
                           {t('pub_publisher')}
                         </a>
                       )}
                     </div>
                   </div>
                 </article>
-              ))}
+                )
+              })}
             </div>
           </div>
-        ))}
+          ))
+        })()}
       </div>
+
+      {totalPages > 1 && (
+        <div className="pub-pagination" role="navigation" aria-label={t('pub_pagination')}>
+          <button
+            type="button"
+            className="pub-page-btn"
+            onClick={() => setPage(p => Math.max(1, p - 1))}
+            disabled={page <= 1}
+          >
+            <CaretLeft size={14} weight="bold" />
+            {t('pub_prev')}
+          </button>
+          <span className="pub-page-status">
+            {t('pub_page_of').replace('{page}', String(page)).replace('{total}', String(totalPages))}
+          </span>
+          <button
+            type="button"
+            className="pub-page-btn"
+            onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+            disabled={page >= totalPages}
+          >
+            {t('pub_next')}
+            <CaretRight size={14} weight="bold" />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

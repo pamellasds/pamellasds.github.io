@@ -13,21 +13,29 @@ export default function Sidebar({ open, onClose }) {
   const researchLinks = [
     { to: '/pesquisa/sobre', label: t('nav_about') },
     { to: '/pesquisa/publicacoes', label: t('nav_publications') },
+    { to: '/pesquisa/projetos', label: t('nav_projects') },
+    { to: '/pesquisa/awards', label: t('nav_awards') },
   ]
 
   const industryLinks = [
     { to: '/industria/experiencias', label: t('nav_experience') },
+    { to: '/industria/portfolio', label: t('nav_portfolio') },
     { to: '/industria/skills', label: t('nav_skills') },
-    { to: '/industria/projetos', label: t('nav_projects') },
+    { to: '/industria/awards', label: t('nav_awards') },
   ]
 
   const links = mode === 'pesquisa' ? researchLinks : industryLinks
+  const cvHref = mode === 'industria'
+    ? assetUrl('/cv/CV-Pamella-Blockchain.pdf')
+    : assetUrl('/cv/CV-Pamella-Academy.pdf')
+  const cvLabel = mode === 'industria'
+    ? t('sidebar_download_cv_industry')
+    : t('sidebar_download_cv_academy')
 
   return (
     <>
       {open && <div className="sidebar-overlay" onClick={onClose} />}
-      {/* Add class "sidebar--neutral" to revert to white/neutral sidebar */}
-      <aside className={`sidebar sidebar--yellow ${open ? 'open' : ''}`}>
+      <aside className={`sidebar sidebar--brand ${open ? 'open' : ''}`}>
         <div className="sidebar-profile">
           <div className="sidebar-photo-wrap">
             <img
@@ -56,7 +64,7 @@ export default function Sidebar({ open, onClose }) {
 
         <div className="sidebar-bottom">
           <a
-            href={assetUrl('/cv/CV-Pamella-Soares.pdf')}
+            href={cvHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-sm sidebar-cv-btn"
@@ -66,7 +74,7 @@ export default function Sidebar({ open, onClose }) {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            {t('sidebar_download_cv')}
+            {cvLabel}
           </a>
           <SocialLinks />
         </div>

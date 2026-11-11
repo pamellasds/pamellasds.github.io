@@ -19,7 +19,7 @@
 }
 
 .social-link:hover {
-  color: var(--yellow-deepest);
-  background: var(--yellow-light);
+  color: var(--brand-deepest);
+  background: var(--brand-light);
   transform: translateY(-2px);
 }

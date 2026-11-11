@@ -6,8 +6,8 @@ export const publications = [
         title: 'From Specification to Practice: An Empirical Study of Ethereum ERC Standard Adoption in Open Source Projects',
         authors: 'Soares, P.; Silva Filho, A.; Rodrigues, R.; Araujo, A. A.; Souza, J.',
         venue: 'Simposio Brasileiro de Engenharia de Software (SBES).',
-        preprint: '/papers/sbes-ercs-analysis-preprint.pdf',
-        publisherUrl: null,
+        preprint: null,
+        publisherUrl: 'https://sol.sbc.org.br/index.php/sbes/article/view/47158/46914',
         award: null,
       },
       {
@@ -26,19 +26,19 @@ export const publications = [
         publisherUrl: 'https://dl.acm.org/doi/10.1145/3786157.3788566',
         award: null,
       },
+      {
+        title: 'Web3BlockSet: A Dataset for Empirical Research in Blockchain-Oriented Software Engineering',
+        authors: 'Soares, P.; Destefanis, G.; Santos, A. C. N.; Araujo, A. A.; Saraiva, R.; Souza, J.',
+        venue: 'Mining Software Repositories (MSR).',
+        preprint: 'https://www.researchgate.net/publication/399720579_Web3BlockSet_A_Dataset_for_Empirical_Research_in_Blockchain-Oriented_Software_Engineering',
+        publisherUrl: 'https://dl.acm.org/doi/10.1145/3793302.3793323',
+        award: null,
+      },
     ],
   },
   {
     year: 2025,
     papers: [
-      {
-        title: 'Web3BlockSet: A Dataset for Empirical Research in Blockchain-Oriented Software Engineering',
-        authors: 'Soares, P.; Destefanis, G.; Santos, A. C. N.; Araujo, A. A.; Saraiva, R.; Souza, J.',
-        venue: 'Mining Software Repositories (MSR).',
-        preprint: null,
-        publisherUrl: null,
-        award: null,
-      },
       {
         title: 'A Transformer-Based Methodology for Person-Independent Human Activity Recognition Using Wi-Fi CSI',
         authors: 'Santos, A. C. N.; Soares, P.; Galdino, I.; Soto, J. C. H.; de Sousa, C.; Ramos, T. C. et al.',

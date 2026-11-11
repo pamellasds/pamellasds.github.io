@@ -84,10 +84,10 @@
 }
 
 .sidebar-link.active {
-  color: var(--yellow-deepest);
+  color: var(--brand-deepest);
   font-weight: 600;
-  background: var(--yellow-lightest);
-  border-left-color: var(--yellow-medium);
+  background: var(--brand-lightest);
+  border-left-color: var(--brand-medium);
 }
 
 /* === Bottom Section === */
@@ -111,90 +111,83 @@
 
 .sidebar-cv-btn:hover {
   background: var(--white);
-  border-color: var(--yellow-medium);
+  border-color: var(--brand-medium);
 }
 
 /*
  * =============================================
- *  YELLOW THEME (egg yellow sidebar)
- *  To revert to neutral: change "sidebar--yellow"
- *  to "sidebar--neutral" in Sidebar.jsx
+ *  BRAND THEME (violet sidebar)
  * =============================================
  */
-.sidebar--yellow {
-  background: var(--yellow-medium);
+.sidebar--brand {
+  background: linear-gradient(180deg, #5B21B6 0%, #4C1D95 55%, #3B0764 100%);
   border-right: none;
 }
 
-.sidebar--yellow .sidebar-profile {
-  border-bottom-color: rgba(0, 0, 0, 0.1);
+.sidebar--brand .sidebar-profile {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-.sidebar--yellow .sidebar-photo-wrap {
-  border-color: var(--white);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+.sidebar--brand .sidebar-photo-wrap {
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
-.sidebar--yellow .sidebar-name {
-  color: var(--accent-dark);
+.sidebar--brand .sidebar-name {
+  color: var(--white);
 }
 
-.sidebar--yellow .sidebar-title {
-  color: rgba(31, 41, 55, 0.75);
+.sidebar--brand .sidebar-title {
+  color: rgba(255, 255, 255, 0.82);
 }
 
-.sidebar--yellow .sidebar-location {
-  color: rgba(31, 41, 55, 0.6);
+.sidebar--brand .sidebar-location {
+  color: rgba(255, 255, 255, 0.65);
 }
 
-.sidebar--yellow .sidebar-link {
-  color: rgba(31, 41, 55, 0.7);
+.sidebar--brand .sidebar-link {
+  color: rgba(255, 255, 255, 0.78);
   border-left-color: transparent;
 }
 
-.sidebar--yellow .sidebar-link:hover {
-  color: var(--accent-dark);
-  background: rgba(255, 255, 255, 0.3);
+.sidebar--brand .sidebar-link:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.sidebar--yellow .sidebar-link.active {
-  color: var(--accent-dark);
+.sidebar--brand .sidebar-link.active {
+  color: var(--white);
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.5);
-  border-left-color: var(--accent-dark);
+  background: rgba(255, 255, 255, 0.18);
+  border-left-color: #C4B5FD;
 }
 
-.sidebar--yellow .sidebar-bottom {
-  border-top-color: rgba(0, 0, 0, 0.1);
+.sidebar--brand .sidebar-bottom {
+  border-top-color: rgba(255, 255, 255, 0.12);
 }
 
-.sidebar--yellow .sidebar-cv-btn {
-  background: rgba(255, 255, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.7);
-  color: var(--accent-dark);
+.sidebar--brand .sidebar-cv-btn {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--white);
 }
 
-.sidebar--yellow .sidebar-cv-btn:hover {
+.sidebar--brand .sidebar-cv-btn:hover {
   background: var(--white);
   border-color: var(--white);
+  color: var(--brand-deepest);
 }
 
-.sidebar--yellow .social-link {
-  color: rgba(31, 41, 55, 0.6);
-  background: rgba(255, 255, 255, 0.35);
+.sidebar--brand .social-link {
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.sidebar--yellow .social-link:hover {
-  color: var(--accent-dark);
+.sidebar--brand .social-link:hover {
+  color: var(--brand-deepest);
   background: var(--white);
 }
 
-/*
- * =============================================
- *  NEUTRAL THEME (revert option)
- *  Use class "sidebar--neutral" to get white sidebar
- * =============================================
- */
 .sidebar--neutral {
   background: var(--white);
   border-right: 1px solid var(--gray-medium);

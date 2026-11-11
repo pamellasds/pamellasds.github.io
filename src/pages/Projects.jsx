@@ -1,10 +1,14 @@
+import { ArrowSquareOut } from '@phosphor-icons/react'
 import { useLanguage } from '../i18n/LanguageContext'
-import { projects } from '../data/projects'
+import { projectsFor } from '../data/projects'
+import { loc } from '../data/profile'
 import SkillBadge from '../components/SkillBadge'
+import PhIcon from '../components/PhIcon'
 import './Projects.css'
 
 export default function Projects() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
+  const researchProjects = projectsFor('research')
 
   return (
     <div className="projects">
@@ -12,13 +16,18 @@ export default function Projects() {
       <p className="section-subtitle">{t('proj_subtitle')}</p>
 
       <div className="projects-grid">
-        {projects.map((project, i) => (
+        {researchProjects.map((project, i) => (
           <article key={i} className="project-card">
             <div className="project-header">
-              <h3 className="project-name">{project.name}</h3>
-              <span className="project-company">{project.company}</span>
+              <div className="project-icon">
+                <PhIcon name={project.icon} size={24} weight="duotone" />
+              </div>
+              <div>
+                <h3 className="project-name">{loc(project.name, lang)}</h3>
+                <span className="project-company">{loc(project.company, lang)}</span>
+              </div>
             </div>
-            <p className="project-description">{project.description}</p>
+            <p className="project-description">{loc(project.description, lang)}</p>
             <div className="project-techs">
               {project.technologies.map((tech, j) => (
                 <SkillBadge key={j} label={tech} />
@@ -31,11 +40,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="btn btn-sm btn-outline project-link"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
+                <ArrowSquareOut size={14} weight="bold" />
                 {t('proj_visit')}
               </a>
             )}

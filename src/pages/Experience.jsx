@@ -1,10 +1,11 @@
 import { useLanguage } from '../i18n/LanguageContext'
 import { experiences } from '../data/experiences'
+import { loc } from '../data/profile'
 import SkillBadge from '../components/SkillBadge'
 import './Experience.css'
 
 export default function Experience() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <div className="experience">
@@ -19,14 +20,15 @@ export default function Experience() {
             </div>
             <div className="timeline-content">
               <div className="timeline-header">
-                <h3 className="timeline-role">{exp.role}</h3>
+                <h3 className="timeline-role">{loc(exp.role, lang)}</h3>
                 <span className="timeline-period">{exp.period}</span>
               </div>
               <p className="timeline-company">
-                {exp.company} <span className="timeline-location">| {exp.location}</span>
+                {exp.company}{' '}
+                <span className="timeline-location">| {loc(exp.location, lang)}</span>
               </p>
               <ul className="timeline-description">
-                {exp.description.map((item, j) => (
+                {loc(exp.description, lang).map((item, j) => (
                   <li key={j}>{item}</li>
                 ))}
               </ul>

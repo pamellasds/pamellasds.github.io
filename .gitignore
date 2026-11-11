@@ -2,3 +2,15 @@ node_modules
 dist
 .DS_Store
 *.local
+node_modules/
+.venv/
+venv/
+__pycache__/
+.next/
+dist/
+build/
+target/
+*.log
+.env
+.env.*
+!.env.example

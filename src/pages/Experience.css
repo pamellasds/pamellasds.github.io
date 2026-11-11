@@ -10,7 +10,7 @@
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: var(--gray-medium);
+  background: var(--brand-light);
 }
 
 /* === Timeline Item === */
@@ -37,15 +37,15 @@
 }
 
 .timeline-item.current .timeline-dot {
-  background: var(--yellow-medium);
-  box-shadow: 0 0 0 2px var(--yellow-medium);
+  background: var(--brand-medium);
+  box-shadow: 0 0 0 2px var(--brand-medium);
 }
 
 .timeline-pulse {
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 2px solid var(--yellow-medium);
+  border: 2px solid var(--brand-medium);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .timeline-item.current .timeline-content {
-  border-color: var(--yellow-light);
+  border-color: var(--brand-light);
 }
 
 .timeline-content:hover {
@@ -99,14 +99,14 @@
 }
 
 .timeline-item.current .timeline-period {
-  background: var(--yellow-lightest);
-  color: var(--yellow-deepest);
+  background: var(--brand-lightest);
+  color: var(--brand-deepest);
 }
 
 .timeline-company {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--yellow-deepest);
+  color: var(--brand-deepest);
   margin-bottom: 12px;
 }
 
@@ -139,7 +139,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--yellow-medium);
+  background: var(--brand-medium);
 }
 
 .timeline-techs {

@@ -4,11 +4,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(249, 250, 251, 0.7);
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.96) 0%, rgba(76, 29, 149, 0.96) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   height: var(--header-height);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 12px rgba(76, 29, 149, 0.15);
 }
 
 .header-inner {
@@ -32,27 +33,25 @@
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: none;
-  border: 1.5px solid var(--gray-medium);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  color: var(--text-primary);
+  color: rgba(255, 255, 255, 0.92);
   transition: all 0.2s;
 }
 
 .header-home:hover {
-  color: var(--yellow-dark);
-  border-color: var(--yellow-medium);
-  background: var(--yellow-lightest);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-/* === Right side === */
 .header-right {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* === Toggle === */
 .mode-toggle {
   display: flex;
   align-items: center;
@@ -65,27 +64,27 @@
   gap: 5px;
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
   transition: color 0.2s;
   user-select: none;
 }
 
 .mode-label:hover {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .mode-label.active {
-  color: var(--yellow-deepest);
+  color: var(--white);
   font-weight: 600;
 }
 
 .mode-label.active .mode-icon {
-  stroke: var(--yellow-dark);
+  stroke: #E9D5FF;
 }
 
 .mode-icon {
-  stroke: var(--text-light);
+  stroke: rgba(255, 255, 255, 0.5);
   transition: stroke 0.2s;
 }
 
@@ -93,16 +92,17 @@
   position: relative;
   width: 44px;
   height: 24px;
-  background: var(--gray-light);
-  border: 2px solid var(--gray-medium);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.28);
   border-radius: 12px;
   cursor: pointer;
   padding: 0;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.2s;
 }
 
 .toggle-switch:hover {
-  border-color: var(--yellow-medium);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .toggle-knob {
@@ -111,7 +111,7 @@
   left: 2px;
   width: 16px;
   height: 16px;
-  background: var(--yellow-medium);
+  background: #E9D5FF;
   border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -120,14 +120,13 @@
   transform: translateX(20px);
 }
 
-/* === Language Toggle === */
 .lang-toggle {
   padding: 5px 12px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  background: var(--gray-light);
-  border: 1.5px solid var(--gray-medium);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
   border-radius: 20px;
   cursor: pointer;
   font-family: inherit;
@@ -135,12 +134,10 @@
 }
 
 .lang-toggle:hover {
-  background: var(--yellow-lightest);
-  border-color: var(--yellow-medium);
-  color: var(--yellow-deepest);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* === Hamburger (mobile) === */
 .header-hamburger {
   display: none;
   flex-direction: column;
@@ -155,7 +152,7 @@
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--text-primary);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 2px;
   transition: all 0.3s;
 }
